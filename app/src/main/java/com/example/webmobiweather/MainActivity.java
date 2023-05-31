@@ -101,18 +101,14 @@ public class MainActivity extends AppCompatActivity {
         }, 1500);
 
         list1 = new ArrayList<>();
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         recyc.setLayoutManager(layoutManager);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
-        wad= new WAdapter(this , list1);
+        wad= new WAdapter(MainActivity.this , list1);
         recyc.setAdapter(wad);
 
         response(MyDatabase.getString(getApplicationContext()));
-
-
-
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,16 +116,13 @@ public class MainActivity extends AppCompatActivity {
                 String a = search.getText().toString();
                 MyDatabase.saveString(getApplicationContext() ,a);
                 pb.setVisibility(View.VISIBLE);
+                list1.clear();
                 response(a);
+
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
                 // Hide the keyboard
                 imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-
-
-
-
-
 
             }
         });
@@ -203,8 +196,12 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("hello", humidity);
 
 
+                        wad.notifyDataSetChanged();
+
+
+
                     }
-                    wad.notifyDataSetChanged();
+
 
 
 
