@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.squareup.picasso.Picasso;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -27,6 +28,7 @@ public class WAdapter extends RecyclerView.Adapter<WAdapter.ViewHolder> {
         this.context = context;
         this.list = list;
     }
+
 
     @NonNull
     @Override
@@ -66,6 +68,7 @@ public class WAdapter extends RecyclerView.Adapter<WAdapter.ViewHolder> {
 
     }
 
+
     @Override
     public int getItemCount() {
         return list.size();
@@ -86,5 +89,11 @@ public class WAdapter extends RecyclerView.Adapter<WAdapter.ViewHolder> {
             cicon = itemView.findViewById(R.id.cicon);
 
         }
+
+
     }
+
+
+
+
 }
